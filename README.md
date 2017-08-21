@@ -1,6 +1,6 @@
 # Windows Caffe
 
-**This is an experimental, I would migrate ssd from Linux to Windows, and based on @willyd work. It is a work-in-progress.**
+**This is an experimental, I would migrate [ssd](https://github.com/weiliu89/caffe/tree/ssd) from Linux to Windows, and based on @willyd work. It is a work-in-progress.**
 
 This branch of Caffe ports the framework to Windows.
 
