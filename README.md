@@ -9,7 +9,7 @@ This branch of Caffe ports the framework to Windows.
 [![Build status](https://ci.appveyor.com/api/projects/status/ew7cl2k1qfsnyql4/branch/windows?svg=true)](https://ci.appveyor.com/project/BVLC/caffe/branch/windows) AppVeyor (Windows build)
 
 **Update**: this branch is not actively maintained. Please checkout [this](https://github.com/BVLC/caffe/tree/windows) for more active Windows support.
-If you want to read the Chines version of READMER, please click on it please click [README-Chinese](https://github.com/runhang/caffe-ssd/README-chinese.md)
+If you want to read the Chines version of READMER, please click on it please click [README-Chinese](https://github.com/runhang/caffe-ssd/blob/master/README-Chinese.md)
 
 
 ## Windows Setup
