@@ -9,6 +9,7 @@ This branch of Caffe ports the framework to Windows.
 [![Build status](https://ci.appveyor.com/api/projects/status/ew7cl2k1qfsnyql4/branch/windows?svg=true)](https://ci.appveyor.com/project/BVLC/caffe/branch/windows) AppVeyor (Windows build)
 
 **Update**: this branch is not actively maintained. Please checkout [this](https://github.com/BVLC/caffe/tree/windows) for more active Windows support.
+If you want to read the Chines version of READMER, please click on it please click [README-Chinese](https://github.com/runhang/caffe-ssd/README-chinese.md)
 
 
 ## Windows Setup
@@ -31,9 +32,8 @@ This branch of Caffe ports the framework to Windows.
 
 The fastest method to get started with caffe on Windows is by executing the following commands in a `cmd` prompt (we use `C:\Projects` as a root folder for the remainder of the instructions):
 ```cmd
-C:\Projects> git clone https://github.com/BVLC/caffe.git
-C:\Projects> cd caffe
-C:\Projects\caffe> git checkout windows
+C:\Projects> https://github.com/runhang/caffe-ssd.git
+C:\Projects> cd caffe-ssd
 :: Edit any of the options inside build_win.cmd to suit your needs
 C:\Projects\caffe> scripts\build_win.cmd
 ```
