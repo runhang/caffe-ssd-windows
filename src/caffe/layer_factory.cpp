@@ -7,19 +7,27 @@
 
 #include "caffe/layer.hpp"
 #include "caffe/layer_factory.hpp"
+#include "caffe/layers/annotated_data_layer.hpp"
+#include "caffe/layers/batch_norm_layer.hpp"
+#include "caffe/layers/bias_layer.hpp"
 #include "caffe/layers/concat_layer.hpp"
 #include "caffe/layers/conv_layer.hpp"
 #include "caffe/layers/detection_output_layer.hpp"
+#include "caffe/layers/detection_evaluate_layer.hpp"
 #include "caffe/layers/flatten_layer.hpp"
 #include "caffe/layers/input_layer.hpp"
 #include "caffe/layers/lrn_layer.hpp"
+#include "caffe/layers/multibox_loss_layer.hpp"
 #include "caffe/layers/permute_layer.hpp"
 #include "caffe/layers/pooling_layer.hpp"
 #include "caffe/layers/prior_box_layer.hpp"
 #include "caffe/layers/relu_layer.hpp"
 #include "caffe/layers/reshape_layer.hpp"
+#include "caffe/layers/scale_layer.hpp"
 #include "caffe/layers/sigmoid_layer.hpp"
 #include "caffe/layers/softmax_layer.hpp"
+#include "caffe/layers/softmax_loss_layer.hpp"
+#include "caffe/layers/smooth_L1_loss_layer.hpp"
 #include "caffe/layers/tanh_layer.hpp"
 #include "caffe/proto/caffe.pb.h"
 
@@ -115,13 +123,48 @@ INSTANTIATE_CLASS(LayerRegisterer);
 /////////////////////////////////////////////////////
 
 
+
+
+
+///////////////////////////////////////////////////////
+// Get Flatten layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetAnnotatedDataLayer(const LayerParameter& param) {
+	return shared_ptr<Layer<Dtype> >(new AnnotatedDataLayer<Dtype>(param));
+}
+REGISTER_LAYER_CREATOR(AnnotatedData, GetAnnotatedDataLayer);
+
+
+// Get BatchNorm layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetBatchNormLayer(const LayerParameter& param) {
+	return shared_ptr<Layer<Dtype> >(new BatchNormLayer<Dtype>(param));
+}
+REGISTER_LAYER_CREATOR(BatchNorm, GetBatchNormLayer);
+
+
+// Get Bias layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetBiasLayer(const LayerParameter& param) {
+	return shared_ptr<Layer<Dtype> >(new BiasLayer<Dtype>(param));
+}
+REGISTER_LAYER_CREATOR(Bias, GetBiasLayer);
+
+
 // Get Flatten layer according to engine.
 template <typename Dtype>
 shared_ptr<Layer<Dtype> > GetConcatLayer(const LayerParameter& param) {
 	return shared_ptr<Layer<Dtype> >(new ConcatLayer<Dtype>(param));
 }
-
 REGISTER_LAYER_CREATOR(Concat, GetConcatLayer);
+
+
+// Get DetectionEvaluate layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetDetectionEvaluateLayer(const LayerParameter& param) {
+	return shared_ptr<Layer<Dtype> >(new DetectionEvaluateLayer<Dtype>(param));
+}
+REGISTER_LAYER_CREATOR(DetectionEvaluate, GetDetectionEvaluateLayer);
 
 
 // Get Flatten layer according to engine.
@@ -129,7 +172,6 @@ template <typename Dtype>
 shared_ptr<Layer<Dtype> > GetFlattenLayer(const LayerParameter& param) {
 	return shared_ptr<Layer<Dtype> >(new FlattenLayer<Dtype>(param));
 }
-
 REGISTER_LAYER_CREATOR(Flatten, GetFlattenLayer);
 
 
@@ -138,7 +180,6 @@ template <typename Dtype>
 shared_ptr<Layer<Dtype> > GetInputLayer(const LayerParameter& param) {
 	return shared_ptr<Layer<Dtype> >(new InputLayer<Dtype>(param));
 }
-
 REGISTER_LAYER_CREATOR(Input, GetInputLayer);
 
 
@@ -147,9 +188,15 @@ template <typename Dtype>
 shared_ptr<Layer<Dtype> > GetDetectionOutputLayer(const LayerParameter& param) {
 	return shared_ptr<Layer<Dtype> >(new DetectionOutputLayer<Dtype>(param));
 }
-
 REGISTER_LAYER_CREATOR(DetectionOutput, GetDetectionOutputLayer);
 
+
+// Get MultiBoxLoss layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetMultiBoxLossLayer(const LayerParameter& param) {
+	return shared_ptr<Layer<Dtype> >(new MultiBoxLossLayer<Dtype>(param));
+}
+REGISTER_LAYER_CREATOR(MultiBoxLoss, GetMultiBoxLossLayer);
 
 
 // Get Permute layer according to engine.
@@ -157,7 +204,6 @@ template <typename Dtype>
 shared_ptr<Layer<Dtype> > GetPermuteLayer(const LayerParameter& param) {
 	return shared_ptr<Layer<Dtype> >(new PermuteLayer<Dtype>(param));
 }
-
 REGISTER_LAYER_CREATOR(Permute, GetPermuteLayer);
 
 
@@ -166,7 +212,6 @@ template <typename Dtype>
 shared_ptr<Layer<Dtype> > GetPriorBoxLayer(const LayerParameter& param) {
 	return shared_ptr<Layer<Dtype> >(new PriorBoxLayer<Dtype>(param));
 }
-
 REGISTER_LAYER_CREATOR(PriorBox, GetPriorBoxLayer);
 
 
@@ -176,11 +221,36 @@ template <typename Dtype>
 shared_ptr<Layer<Dtype> > GetReshapeLayer(const LayerParameter& param) {
 	return shared_ptr<Layer<Dtype> >(new ReshapeLayer<Dtype>(param));
 }
-
 REGISTER_LAYER_CREATOR(Reshape, GetReshapeLayer);
 
 
+// Get Scale layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetScaleLayer(const LayerParameter& param) {
+	return shared_ptr<Layer<Dtype> >(new ScaleLayer<Dtype>(param));
+}
+REGISTER_LAYER_CREATOR(Scale, GetScaleLayer);
 
+
+// Get SoftmaxWithLoss layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetSoftmaxWithLossLayer(const LayerParameter& param) {
+	return shared_ptr<Layer<Dtype> >(new SoftmaxWithLossLayer<Dtype>(param));
+}
+REGISTER_LAYER_CREATOR(SoftmaxWithLoss, GetSoftmaxWithLossLayer);
+
+
+// Get SmoothL1Loss layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetSmoothL1LossLayer(const LayerParameter& param) {
+	return shared_ptr<Layer<Dtype> >(new SmoothL1LossLayer<Dtype>(param));
+}
+REGISTER_LAYER_CREATOR(SmoothL1Loss, GetSmoothL1LossLayer);
+
+
+
+
+//////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
 
 // Get convolution layer according to engine.
