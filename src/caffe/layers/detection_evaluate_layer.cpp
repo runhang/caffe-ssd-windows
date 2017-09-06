@@ -245,6 +245,6 @@ void DetectionEvaluateLayer<Dtype>::Forward_cpu(
 }
 
 INSTANTIATE_CLASS(DetectionEvaluateLayer);
-REGISTER_LAYER_CLASS(DetectionEvaluate);
+//REGISTER_LAYER_CLASS(DetectionEvaluate);
 
 }  // namespace caffe

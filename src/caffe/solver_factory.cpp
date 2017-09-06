@@ -110,6 +110,7 @@ Solver<Dtype>* CreatorNesterovSolver(const SolverParameter& param){             
 }
 REGISTER_SOLVER_CREATOR(Nesterov, CreatorNesterovSolver);
 
+
 //RMSProp
 template <typename Dtype>
 Solver<Dtype>* CreatorRMSPropSolver(const SolverParameter& param){                                                                            \

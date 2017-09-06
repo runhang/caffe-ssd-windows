@@ -222,6 +222,6 @@ STUB_GPU(ScaleLayer);
 #endif
 
 INSTANTIATE_CLASS(ScaleLayer);
-REGISTER_LAYER_CLASS(Scale);
+//REGISTER_LAYER_CLASS(Scale);
 
 }  // namespace caffe

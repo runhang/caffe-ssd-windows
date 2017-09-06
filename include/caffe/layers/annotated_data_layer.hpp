@@ -1,5 +1,5 @@
-#ifndef CAFFE_DATA_LAYER_HPP_
-#define CAFFE_DATA_LAYER_HPP_
+#ifndef CAFFE_ANNOTATED_DATA_LAYER_HPP_
+#define CAFFE_ANNOTATED_DATA_LAYER_HPP_
 
 #include <string>
 #include <vector>

@@ -308,6 +308,6 @@ void AnnotatedDataLayer<Dtype>::load_batch(Batch<Dtype>* batch) {
 }
 
 INSTANTIATE_CLASS(AnnotatedDataLayer);
-REGISTER_LAYER_CLASS(AnnotatedData);
+//REGISTER_LAYER_CLASS(AnnotatedData);
 
 }  // namespace caffe

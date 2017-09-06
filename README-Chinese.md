@@ -47,9 +47,9 @@ The `build_win.cmd` script 将会下载依赖，创建Visual Studio工程文件(
 
 地址链接：
 
-('v120', '2.7'):("https://github.com/willyd/caffe-builder/releases/download/v1.1.0/libraries_v120_x64_py27_1.1.0.tar.bz2"），
-('v140', '2.7'):("https://github.com/willyd/caffe-builder/releases/download/v1.1.0/libraries_v140_x64_py27_1.1.0.tar.bz2"），
-('v140', '3.5'):("https://github.com/willyd/caffe-builder/releases/download/v1.1.0/libraries_v140_x64_py35_1.1.0.tar.bz2").
+('v120', '2.7'):[点击链接下载](https://github.com/willyd/caffe-builder/releases/download/v1.1.0/libraries_v120_x64_py27_1.1.0.tar.bz2)，
+('v140', '2.7'):[点击链接下载](https://github.com/willyd/caffe-builder/releases/download/v1.1.0/libraries_v140_x64_py27_1.1.0.tar.bz2)，
+('v140', '3.5'):[点击链接下载](https://github.com/willyd/caffe-builder/releases/download/v1.1.0/libraries_v140_x64_py35_1.1.0.tar.bz2).
 
 下完依赖包，然后在caffe目录下，新建一个名为“build”的文件夹，然后再把我们下好的依赖包解压。解压完后，是一个libraries文件夹，然后把\libraries\bin,\libraries\lib,\libraries\x64\vc14\bin三个的绝对路径添加到环境变量里面。当然也可以直接将压缩包复制到“C:\Users\自己用户名\.caffe\dependencies\download”文件夹下，将“自己的用户名”修改为你自己的用户名即可
 ### Use cuDNN

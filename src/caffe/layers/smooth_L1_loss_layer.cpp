@@ -103,6 +103,6 @@ STUB_GPU(SmoothL1LossLayer);
 #endif
 
 INSTANTIATE_CLASS(SmoothL1LossLayer);
-REGISTER_LAYER_CLASS(SmoothL1Loss);
+//REGISTER_LAYER_CLASS(SmoothL1Loss);
 
 }  // namespace caffe
