@@ -243,13 +243,28 @@ REGISTER_LAYER_CREATOR(SoftmaxWithLoss, GetSoftmaxWithLossLayer);
 // Get SmoothL1Loss layer according to engine.
 template <typename Dtype>
 shared_ptr<Layer<Dtype> > GetSmoothL1LossLayer(const LayerParameter& param) {
-	return shared_ptr<Layer<Dtype> >(new SmoothL1LossLayer<Dtype>(param));
+    return shared_ptr<Layer<Dtype> >(new SmoothL1LossLayer<Dtype>(param));
 }
 REGISTER_LAYER_CREATOR(SmoothL1Loss, GetSmoothL1LossLayer);
 
 
+//Add following function at layer_factory.cpp
+// Get normalize layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetNormalizeLayer(const LayerParameter& param) {
+     return shared_ptr<Layer<Dtype> >(new NormalizeLayer(param));
+}
+REGISTER_LAYER_CREATOR(Normalize, GetNormalizeLayer);
+//remove REGISTER_LAYER_CLASS(Normalize); // (normalize_layer.cpp, Line 232)
 
 
+//Add following function at layer_factory.cpp
+// Get InnerProduct layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetInnerProductLayer(const LayerParameter& param) {
+     return shared_ptr<Layer<Dtype> >(new InnerProductLayer(param));
+}
+REGISTER_LAYER_CREATOR(InnerProduct, GetInnerProductLayer);
 //////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
 
