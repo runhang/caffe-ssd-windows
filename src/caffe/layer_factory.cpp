@@ -134,6 +134,13 @@ shared_ptr<Layer<Dtype> > GetAnnotatedDataLayer(const LayerParameter& param) {
 }
 REGISTER_LAYER_CREATOR(AnnotatedData, GetAnnotatedDataLayer);
 
+	
+// Get Slice layer according to engine.
+template <typename Dtype>
+shared_ptr<Layer<Dtype> > GetSliceLayer(const LayerParameter& param) {
+	return shared_ptr<Layer<Dtype> >(new SliceLayer<Dtype>(param));
+}
+REGISTER_LAYER_CREATOR(Slice, GetSliceLayer);
 
 // Get BatchNorm layer according to engine.
 template <typename Dtype>
