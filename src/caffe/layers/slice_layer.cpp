@@ -119,6 +119,6 @@ STUB_GPU(SliceLayer);
 #endif
 
 INSTANTIATE_CLASS(SliceLayer);
-REGISTER_LAYER_CLASS(Slice);
+//REGISTER_LAYER_CLASS(Slice);
 
 }  // namespace caffe
